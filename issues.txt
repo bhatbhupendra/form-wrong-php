@@ -1,0 +1,2 @@
+1.  The php code runs every time the form.php page loads which give "Undefine array key 'document' " error. 
+    So, this block of code must be executed only if the request method is POST.
