@@ -1,2 +1,11 @@
 1.  The php code runs every time the form.php page loads which give "Undefine array key 'document' " error. 
     So, this block of code must be executed only if the request method is POST.
+2.  The variable name $target_file makes diffrent sense. It should be $target_location.
+3.  Undefined array key "fileToUpload" 
+    move_uploaded_file( string $filename , string $destination ): bool
+    The move_uploaded_file take two argument file name and destination. We know the file name is "document"
+    $_FILES["fileToUpload"]["tmp_name"] should be replaced by $_FILES["document"]["tmp_name"]
+4.  move_uploaded_file(uploads/newplot.png): Failed to open stream: No such file or directory 
+    we need to create the uploads inside current working directory.
+5.  This code upload any type of file (ie. .jpg, .png, .pdf and so on)
+    To restrict the user form uploading file other than .php we need to check if the extension of the file is .png or not.

@@ -1,9 +1,10 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["document"]["name"]);
+    $target_location = $target_dir . basename($_FILES["document"]["name"]);
+    echo $target_location;
     if(isset($_POST["submit"])) {
-        move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+        move_uploaded_file($_FILES["document"]["tmp_name"], $target_location);
         print("Thank you. Your file is uploaded.");
     }
 }
